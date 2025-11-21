@@ -15,10 +15,12 @@ app.use(express.urlencoded({ extended: true }))
 const routerpaiement = require('./routes/paiement')
 const routertarif = require('./routes/tarif')
 const routerposte = require('./routes/poste')
+const routercategorie = require('./routes/categorietaxe')
 // 
 app.use('/roadsense/paiement', routerpaiement)
 app.use('/roadsense/tarif', routertarif)
 app.use('/roadsense/poste', routerposte)
+app.use('/roadsense/categorietaxe', routercategorie)
 
 
 // test api

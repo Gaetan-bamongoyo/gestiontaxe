@@ -36,6 +36,7 @@ db.sequelize = sequelize
 db.paiement = require('../models/paiement.js')(sequelize, DataTypes)
 db.tarif = require('../models/tarif.js')(sequelize, DataTypes)
 db.poste = require('../models/poste.js')(sequelize, DataTypes)
+db.categorietaxe = require('../models/categorietaxe.js')(sequelize, DataTypes)
 
 db.poste.hasMany(db.paiement, {
     foreignKey: 'poste_id',
@@ -53,6 +54,15 @@ db.tarif.hasMany(db.paiement, {
 db.paiement.belongsTo(db.tarif, {
     foreignKey: 'tarif_id',
     as: 'paiement'
+})
+
+db.categorietaxe.hasMany(db.tarif, {
+    foreignKey: 'categorie_taxe',
+    as: 'tarifs'
+})
+db.tarif.belongsTo(db.categorietaxe, {
+    foreignKey: 'categorie_taxe',
+    as: 'categories'
 })
 
 db.sequelize.sync({ force: false })

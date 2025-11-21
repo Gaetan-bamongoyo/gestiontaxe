@@ -10,7 +10,8 @@ const addPaiement = async (req, res) => {
             montant: req.body.montant,
             date_paiement: req.body.date_paiement,
             tarif_id: req.body.tarif_id,
-            poste_id: req.body.poste_id
+            poste_id: req.body.poste_id,
+            quantite: req.body.quantite
         }
         const paiement = await Paiement.create(info)
         res.status(200).send({paiement, message:true})
