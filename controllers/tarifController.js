@@ -9,7 +9,7 @@ const addTarif = async (req, res) => {
             nom: req.body.nom,
             tarif: req.body.tarif,
             icon_name: req.body.icon_name,
-            categorie_taxe: req.body.categorie_taxe
+            categorie_id: req.body.categorie_id
         }
         const tarif = await Tarif.create(info)
         res.status(200).send({tarif, message:true})

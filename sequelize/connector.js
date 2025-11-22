@@ -57,11 +57,11 @@ db.paiement.belongsTo(db.tarif, {
 })
 
 db.categorietaxe.hasMany(db.tarif, {
-    foreignKey: 'categorie_taxe',
+    foreignKey: 'categorie_id',
     as: 'tarifs'
 })
 db.tarif.belongsTo(db.categorietaxe, {
-    foreignKey: 'categorie_taxe',
+    foreignKey: 'categorie_id',
     as: 'categories'
 })
 

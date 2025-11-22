@@ -7,6 +7,7 @@ const addCategorieTaxe = async (req, res) => {
     try{
         let info = {
             designation: req.body.designation,
+            description: req.body.description,
             icon_name: req.body.icon_name
         }
         const categorie = await CategorieTaxe.create(info)
