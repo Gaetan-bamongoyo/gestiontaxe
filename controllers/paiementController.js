@@ -11,12 +11,14 @@ const addPaiement = async (req, res) => {
             date_paiement: req.body.date_paiement,
             tarif_id: req.body.tarif_id,
             poste_id: req.body.poste_id,
-            quantite: req.body.quantite
+            quantite: req.body.quantite,
+            nom_agent: req.body.nom_agent
         }
         const paiement = await Paiement.create(info)
         res.status(200).send({paiement, message:true})
     } catch (error){
-        res.status(500).send({message: 'Erreur lors de la creation'})
+        console.error("ERR CREATE Paiement => ", error);
+        res.status(500).send({message: 'Erreur lors de la creation', error})
     }
 }
 
